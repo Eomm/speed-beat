@@ -1,0 +1,35 @@
+{
+  "name": "speed-beat",
+  "version": "0.0.1",
+  "description": "Speed counter made easy",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "test": "npm run lint && tap --cov test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eomm/speed-beat.git"
+  },
+  "keywords": [
+    "beat",
+    "speed",
+    "tracking",
+    "increment",
+    "eventemitter"
+  ],
+  "author": "Manuel Spigolon <behemoth89@gmail.com> (https://github.com/Eomm)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Eomm/speed-beat/issues"
+  },
+  "homepage": "https://github.com/Eomm/speed-beat#readme",
+  "devDependencies": {
+    "standard": "^13.1.0",
+    "tap": "^14.6.1"
+  },
+  "dependencies": {
+    "ms": "^2.1.2"
+  }
+}
