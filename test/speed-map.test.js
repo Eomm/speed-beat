@@ -2,7 +2,7 @@
 
 const { test } = require('tap')
 
-const { speedBeat } = require('../')
+const { speedBeat } = require('../lib')
 
 test('required options', t => {
   t.plan(1)

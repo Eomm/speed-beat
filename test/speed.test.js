@@ -2,7 +2,7 @@
 
 const { test } = require('tap')
 
-const speed = require('../speed')
+const speed = require('../lib/speed')
 
 test('simple usage', t => {
   t.plan(4)

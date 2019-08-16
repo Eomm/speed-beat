@@ -1,6 +1,6 @@
 'use strict'
 
-const { speedBeat } = require('./')
+const { speedBeat } = require('./lib/')
 
 const speedTracker = speedBeat({ timer: '1s' })
 

@@ -2,7 +2,7 @@
   "name": "speed-beat",
   "version": "0.0.1",
   "description": "Speed counter made easy",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "lint": "standard",
     "lint:fix": "standard --fix",
