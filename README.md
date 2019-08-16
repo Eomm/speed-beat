@@ -36,8 +36,9 @@ function doSomething (id, counter, total) {
 ## API
 
 + `speedBeat(options)`: create a `speedBeat` instance
-  + `.chrono(id, function)`: add a speed element to track. 
-  + `.lap(id[, value])`: increment the speed value for the element `id`. If the id doesn't exist nothing happen
+  + `.chrono(id, function): EventEmitter`: add a speed element to track
+  + `.lap(id[, value]): EventEmitter`: increment the speed value for the element `id`. If the id doesn't exist nothing happen
+  + `.driver(id): EventEmitter`: return the speed `id` element
   + `.finish()`: stop the call the chrono functions
 
 ### Options

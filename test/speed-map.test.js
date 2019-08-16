@@ -65,3 +65,22 @@ test('timing usage', t => {
   }, 200).unref()
   setTimeout(s.finish, 1200)
 })
+
+test('getter', t => {
+  t.plan(6)
+
+  const s = speedBeat({ timer: '500ms' })
+  s.chrono('foo', () => {})
+  const ee1 = s.driver('foo')
+  t.ok(ee1)
+  t.equals(ee1.total(), 0)
+
+  const ee2 = s.lap('foo')
+  t.ok(ee2)
+  t.equals(ee2.total(), 1)
+
+  const notFound = s.lap('fooo')
+  t.notOk(notFound)
+
+  t.equals(s.timer(), 500)
+})
