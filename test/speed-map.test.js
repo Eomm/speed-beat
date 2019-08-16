@@ -2,18 +2,18 @@
 
 const { test } = require('tap')
 
-const { speedMap } = require('../')
+const { speedBeat } = require('../')
 
 test('required options', t => {
   t.plan(1)
-  t.throws(speedMap)
+  t.throws(speedBeat)
 })
 
 test('simple usage', t => {
   t.plan(18)
 
-  const s1 = speedMap({ timer: 1000 })
-  const s2 = speedMap({ timer: '900ms' })
+  const s1 = speedBeat({ timer: 1000 })
+  const s2 = speedBeat({ timer: '900ms' })
 
   s1.chrono('foo', checker('foo', 1, 1))
   s1.chrono('bar', checker('bar', 10, 10))
@@ -50,7 +50,7 @@ test('simple usage', t => {
 test('timing usage', t => {
   t.plan(6)
 
-  const s = speedMap({ timer: '500ms' })
+  const s = speedBeat({ timer: '500ms' })
 
   let tot = 0
   s.chrono('foo', (id, counter, total) => {

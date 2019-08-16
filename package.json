@@ -1,6 +1,6 @@
 {
   "name": "speed-beat",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Speed counter made easy",
   "main": "index.js",
   "scripts": {
