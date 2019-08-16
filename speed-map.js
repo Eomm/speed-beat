@@ -29,6 +29,9 @@ module.exports = function speedMap (options) {
       if (pitLane.drivers.has(id)) {
         pitLane.drivers.get(id).inc(value)
       }
+    },
+    finish () {
+      clearInterval(pitLane.interval)
     }
   }
 }

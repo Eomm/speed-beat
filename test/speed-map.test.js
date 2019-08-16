@@ -33,7 +33,10 @@ test('simple usage', t => {
   s2.lap('neo', -1)
   s2.lap('not exists')
 
-  setTimeout(() => {}, 1100)
+  setTimeout(() => {
+    s1.finish()
+    s2.finish()
+  }, 1100)
 
   function checker (_id, _counter, _total) {
     return (id, counter, total) => {
@@ -42,4 +45,23 @@ test('simple usage', t => {
       t.equals(total, _total)
     }
   }
+})
+
+test('timing usage', t => {
+  t.plan(6)
+
+  const s = speedMap({ timer: '500ms' })
+
+  let tot = 0
+  s.chrono('foo', (id, counter, total) => {
+    t.equals(id, 'foo')
+    t.equals(counter, 2)
+    t.equals(total, tot)
+  })
+
+  setInterval(() => {
+    s.lap('foo')
+    tot++
+  }, 200).unref()
+  setTimeout(s.finish, 1200)
 })
