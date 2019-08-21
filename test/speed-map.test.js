@@ -4,11 +4,6 @@ const { test } = require('tap')
 
 const { speedBeat } = require('../lib')
 
-test('required options', t => {
-  t.plan(1)
-  t.throws(speedBeat)
-})
-
 test('simple usage', t => {
   t.plan(18)
 
@@ -83,4 +78,39 @@ test('getter', t => {
   t.notOk(notFound)
 
   t.equals(s.timer(), 500)
+})
+
+test('counter usage', t => {
+  t.plan(4)
+
+  const s = speedBeat()
+
+  let tot = 0
+  s.chrono('bravos', (id, counter, total, delta) => {
+    t.equals(id, 'bravos')
+    t.equals(counter, 5)
+    t.equals(total, tot)
+    t.ok(delta >= 1200 && delta < 1300, 'delta time of execution')
+  })
+
+  setInterval(() => {
+    s.lap('bravos')
+    tot++
+  }, 200).unref()
+  setTimeout(s.finish, 1200)
+})
+
+test('counter usage with multiple finish', t => {
+  t.plan(4)
+
+  const s = speedBeat()
+  s.chrono('bravos', (id, counter, total, delta) => {
+    t.equals(id, 'bravos')
+    t.ok(delta >= 1200 && delta < 1300, 'delta time constant between finish call')
+  })
+
+  setTimeout(() => {
+    s.finish()
+    setTimeout(s.finish, 1200)
+  }, 1200)
 })
