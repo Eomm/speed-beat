@@ -13,7 +13,7 @@ npm i speed-beat
 Start to track many resource and, every `timer` second execute the `chrono` function!
 
 ```js
-const { speedBeat } = require('speed-beat)
+const { speedBeat } = require('speed-beat')
 
 const speedTracker = speedBeat({ timer: '1s' })
 
@@ -40,7 +40,7 @@ function doSomething (id, counter, total) {
 You will handle when execute the `chrono` function.
 
 ```js
-const { speedBeat } = require('speed-beat)
+const { speedBeat } = require('speed-beat')
 
 const speedTracker = speedBeat()
 
